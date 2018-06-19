@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 @Service
 public class FluxService {
 
-	public Flux<Long> getFlux() {
-		return Flux.interval(Duration.ofSeconds(1)).take(20);
+	public Flux<Long> getFlux(int length) {
+		return Flux.interval(Duration.ofSeconds(1)).take(length);
 	}
 }
