@@ -1,0 +1,34 @@
+###
+#   Database Settings
+###
+spring:
+  datasource:
+    url: jdbc:h2:mem:stocks;MODE=PostgreSQL
+    platform: h2
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+  liquibase:
+    enabled: false
+    change-log: classpath:/db/changelog-master.xml
+    contexts: default, test-data
+
+###
+#   H2 Settings
+###
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
